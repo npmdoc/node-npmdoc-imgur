@@ -1,0 +1,1312 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/kaimallea/node-imgur">imgur (v0.2.1)</a>
+</h1>
+<h4>Upload images to imgur.com</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.imgur">module imgur</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur._getAuthorizationHeader">
+            function <span class="apidocSignatureSpan">imgur.</span>_getAuthorizationHeader
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur._imgurRequest">
+            function <span class="apidocSignatureSpan">imgur.</span>_imgurRequest
+            <span class="apidocSignatureSpan">(operation, payload, extraFormParams)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur._request">
+            function <span class="apidocSignatureSpan">imgur.</span>_request
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.clearClientId">
+            function <span class="apidocSignatureSpan">imgur.</span>clearClientId
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.createAlbum">
+            function <span class="apidocSignatureSpan">imgur.</span>createAlbum
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.deleteImage">
+            function <span class="apidocSignatureSpan">imgur.</span>deleteImage
+            <span class="apidocSignatureSpan">(deletehash)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.getAPIUrl">
+            function <span class="apidocSignatureSpan">imgur.</span>getAPIUrl
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.getAlbumInfo">
+            function <span class="apidocSignatureSpan">imgur.</span>getAlbumInfo
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.getClientId">
+            function <span class="apidocSignatureSpan">imgur.</span>getClientId
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.getCredits">
+            function <span class="apidocSignatureSpan">imgur.</span>getCredits
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.getInfo">
+            function <span class="apidocSignatureSpan">imgur.</span>getInfo
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.getMashapeKey">
+            function <span class="apidocSignatureSpan">imgur.</span>getMashapeKey
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.loadClientId">
+            function <span class="apidocSignatureSpan">imgur.</span>loadClientId
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.saveClientId">
+            function <span class="apidocSignatureSpan">imgur.</span>saveClientId
+            <span class="apidocSignatureSpan">(clientId, path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.setAPIUrl">
+            function <span class="apidocSignatureSpan">imgur.</span>setAPIUrl
+            <span class="apidocSignatureSpan">(URL)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.setClientId">
+            function <span class="apidocSignatureSpan">imgur.</span>setClientId
+            <span class="apidocSignatureSpan">(clientId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.setCredentials">
+            function <span class="apidocSignatureSpan">imgur.</span>setCredentials
+            <span class="apidocSignatureSpan">(username, password, clientId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.setMashapeKey">
+            function <span class="apidocSignatureSpan">imgur.</span>setMashapeKey
+            <span class="apidocSignatureSpan">(mashapeKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.uploadAlbum">
+            function <span class="apidocSignatureSpan">imgur.</span>uploadAlbum
+            <span class="apidocSignatureSpan">(images, uploadType, failSafe)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.uploadBase64">
+            function <span class="apidocSignatureSpan">imgur.</span>uploadBase64
+            <span class="apidocSignatureSpan">(base64, albumId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.uploadFile">
+            function <span class="apidocSignatureSpan">imgur.</span>uploadFile
+            <span class="apidocSignatureSpan">(file, albumId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.uploadImages">
+            function <span class="apidocSignatureSpan">imgur.</span>uploadImages
+            <span class="apidocSignatureSpan">(images, uploadType, albumId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imgur.uploadUrl">
+            function <span class="apidocSignatureSpan">imgur.</span>uploadUrl
+            <span class="apidocSignatureSpan">(url, albumId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">imgur.</span>VERSION</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.imgur" id="apidoc.module.imgur">module imgur</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.imgur._getAuthorizationHeader" id="apidoc.element.imgur._getAuthorizationHeader">
+        function <span class="apidocSignatureSpan">imgur.</span>_getAuthorizationHeader
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getAuthorizationHeader = function () {
+    var deferred = Q.defer();
+
+    if (IMGUR_ACCESS_TOKEN) {
+        deferred.resolve('Bearer ' + IMGUR_ACCESS_TOKEN);
+    } else if (IMGUR_USERNAME &amp;&amp; IMGUR_PASSWORD) {
+        var options = {
+            uri:      'https://api.imgur.com/oauth2/authorize',
+            method:   'GET',
+            encoding: 'utf8',
+            qs: {
+                client_id: IMGUR_CLIENT_ID,
+                response_type: 'token'
+            }
+        };
+        imgur._request(options).then(function (res) {
+            var authorize_token = res.headers['set-cookie'][0].match('(^|;)[\s]*authorize_token=([^;]*)')[2];
+            options.method = 'POST';
+            options.json = true;
+            options.form = {
+                username: IMGUR_USERNAME,
+                password: IMGUR_PASSWORD,
+                allow: authorize_token
+            };
+            options.headers = {
+                Cookie: 'authorize_token=' + authorize_token
+            };
+            imgur._request(options).then(function (res) {
+                var location = res.headers.location;
+                var token = JSON.parse('{"' + decodeURI(location.slice(location.indexOf('#') + 1)).replace(/"/g, '\\"').replace(/&amp;/
+g, '","').replace(/=/g,'":"') + '"}');
+                IMGUR_ACCESS_TOKEN = token.access_token;
+                deferred.resolve('Bearer ' + IMGUR_ACCESS_TOKEN);
+            }).catch(function (err) {
+                deferred.reject(err);
+            });
+        }).catch(function (err) {
+            deferred.reject(err);
+        });
+    } else {
+        deferred.resolve('Client-ID ' + IMGUR_CLIENT_ID);
+    }
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur._imgurRequest" id="apidoc.element.imgur._imgurRequest">
+        function <span class="apidocSignatureSpan">imgur.</span>_imgurRequest
+        <span class="apidocSignatureSpan">(operation, payload, extraFormParams)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_imgurRequest = function (operation, payload, extraFormParams) {
+    var deferred = Q.defer();
+    var form     = null;
+    var options  = {
+        uri:      IMGUR_API_URL,
+        method:   null,
+        encoding: 'utf8',
+        json:     true
+    };
+
+    if (!operation || typeof operation !== 'string' || (!payload &amp;&amp; operation !== 'credits')) {
+        deferred.reject(new Error('Invalid argument'));
+        return deferred.promise;
+    }
+
+    switch(operation) {
+        case 'upload':
+            options.method = 'POST';
+            options.uri += 'image';
+            break;
+        case 'credits':
+            options.method = 'GET';
+            options.uri += 'credits';
+            break;
+        case 'info':
+            options.method = 'GET';
+            options.uri += 'image/' + payload;
+            break;
+        case 'album':
+            options.method = 'GET';
+            options.uri += 'album/' + payload;
+            break;
+        case 'createAlbum':
+            options.method = 'POST';
+            options.uri += 'album';
+            break;
+        case 'delete':
+            options.method = 'DELETE';
+            options.uri += 'image/' + payload;
+            break;
+        default:
+            deferred.reject(new Error('Invalid operation'));
+            return deferred.promise;
+    }
+
+    imgur._getAuthorizationHeader()
+        .then(function (authorizationHeader) {
+            if(IMGUR_MASHAPE_KEY) {
+                options.headers = {
+                    Authorization: authorizationHeader,
+                    'X-Mashape-Key': IMGUR_MASHAPE_KEY
+                };
+            } else {
+                options.headers = {
+                    Authorization: authorizationHeader
+                };
+            }
+
+            var r = request(options, function (err, res, body) {
+                if (err) {
+                    deferred.reject(err);
+                } else if (body &amp;&amp; !body.success) {
+                    deferred.reject({status: body.status, message: body.data ? body.data.error : 'No body data response'});
+                } else {
+                    deferred.resolve(body);
+                }
+            });
+
+            if (operation === 'upload') {
+                form = r.form();
+                form.append('image', payload);
+
+                if (typeof extraFormParams === 'object') {
+                    for (var param in extraFormParams) {
+                        form.append(param, extraFormParams[param]);
+                    }
+                }
+            }
+        })
+        .catch(function (err) {
+            deferred.reject(err);
+        });
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur._request" id="apidoc.element.imgur._request">
+        function <span class="apidocSignatureSpan">imgur.</span>_request
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_request = function (options) {
+    var deferred = Q.defer();
+
+    request(options, function (err, res, body) {
+        if (err) {
+            deferred.reject(err);
+        } else {
+            deferred.resolve(res);
+        }
+    });
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.clearClientId" id="apidoc.element.imgur.clearClientId">
+        function <span class="apidocSignatureSpan">imgur.</span>clearClientId
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clearClientId = function (path) {
+    return imgur.saveClientId('', path);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+        if (commander.show) {
+
+console.log(imgur.getClientId());
+
+        } else if (commander.clear) {
+
+imgur.<span class="apidocCodeKeywordSpan">clearClientId</span>()
+    .fail(function (err) {
+        console.error('Unable to clear client id (%s)', err.message);
+    });
+
+        } else if (commander.save) {
+
+imgur.saveClientId(commander.save)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.createAlbum" id="apidoc.element.imgur.createAlbum">
+        function <span class="apidocSignatureSpan">imgur.</span>createAlbum
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createAlbum = function () {
+    var deferred = Q.defer();
+
+    imgur._imgurRequest('createAlbum', 'dummy')
+        .then(function (json) {
+            deferred.resolve(json);
+        })
+        .catch(function (err) {
+            deferred.reject(err);
+        });
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+
+```
+
+#### Creating an album:
+
+```javascript
+imgur.<span class="apidocCodeKeywordSpan">createAlbum</span>()
+.then(function(json) {
+    console.log(json);
+})
+.catch(function (err) {
+    console.error(err.message);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.deleteImage" id="apidoc.element.imgur.deleteImage">
+        function <span class="apidocSignatureSpan">imgur.</span>deleteImage
+        <span class="apidocSignatureSpan">(deletehash)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deleteImage = function (deletehash) {
+    var deferred = Q.defer();
+
+    if(!deletehash) {
+        deferred.reject('Missing deletehash');
+    }
+
+    imgur._imgurRequest('delete', deletehash)
+        .then(function (json) {
+            deferred.resolve(json);
+        })
+        .catch(function (err) {
+            deferred.reject(err);
+        });
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+#### Deleting anonymous uploads
+
+Delete an image based on the deletehash(generated during the image upload)
+
+```javascript
+imgur.<span class="apidocCodeKeywordSpan">deleteImage</span>(deletehash)
+    .then(function(status) {
+        console.log(status);
+    })
+    .catch(function(err) {
+        console.error(err.message);
+    });
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.getAPIUrl" id="apidoc.element.imgur.getAPIUrl">
+        function <span class="apidocSignatureSpan">imgur.</span>getAPIUrl
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAPIUrl = function () {
+    return IMGUR_API_URL;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```javascript
+//Setting
+imgur.setAPIUrl('https://api.imgur.com/3/');
+
+//If setAPIUrl() is not called, API URL is read from process.env.IMGUR_API_URL
+
+//Getting
+imgur.<span class="apidocCodeKeywordSpan">getAPIUrl</span>();
+```
+#### Dealing with Mashape Key
+
+Requests to the Mashape URL expects a X-Mashape-Key: MashapeKey header.
+Set Mashape Key by using setMashapeKey(MashapeKey) method.
+Note: Defaults to process.env.IMGUR_MASHAPE_KEY
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.getAlbumInfo" id="apidoc.element.imgur.getAlbumInfo">
+        function <span class="apidocSignatureSpan">imgur.</span>getAlbumInfo
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAlbumInfo = function (id) {
+    var deferred = Q.defer();
+
+    if (!id) {
+        deferred.reject(new Error('Invalid album ID'));
+        return deferred.promise;
+    }
+
+    imgur._imgurRequest('album', id)
+        .then(function (json) {
+            deferred.resolve(json);
+        })
+        .catch(function (err) {
+            deferred.reject(err);
+        });
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```
+
+#### Fetching album data:
+
+```javascript
+var kittenAlbum = 'mbgq7nd';
+imgur.<span class="apidocCodeKeywordSpan">getAlbumInfo</span>(kittenAlbum)
+.then(function(json) {
+    console.log(json);
+})
+.catch(function (err) {
+    console.error(err.message);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.getClientId" id="apidoc.element.imgur.getClientId">
+        function <span class="apidocSignatureSpan">imgur.</span>getClientId
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getClientId = function () {
+    return IMGUR_CLIENT_ID;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### Dealing with client IDs:
+
+```javascript
+// Setting
+imgur.setClientId('aCs53GSs4tga0ikp');
+
+// Getting
+imgur.<span class="apidocCodeKeywordSpan">getClientId</span>();
+
+// Saving to disk. Returns a promise.
+// NOTE: path is optional. Defaults to ~/.imgur
+imgur.saveClientId(path)
+.then(function () {
+    console.log('Saved.');
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.getCredits" id="apidoc.element.imgur.getCredits">
+        function <span class="apidocSignatureSpan">imgur.</span>getCredits
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getCredits = function () {
+    var deferred = Q.defer();
+
+    imgur._imgurRequest('credits')
+        .then(function (json) {
+            deferred.resolve(json);
+        })
+        .catch(function (err) {
+            deferred.reject(err);
+        });
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    imgur.saveClientId(commander.save)
+        .fail(function (err) {
+            console.error('Unable to save client id (%s)', err.message);
+        });
+
+} else if (commander.credits) {
+
+    imgur.<span class="apidocCodeKeywordSpan">getCredits</span>()
+        .then(function (json) {
+            console.log(json.data);
+        }, function (err) {
+            console.error('Unable to get credit info (%s)', err.message);
+        });
+
+} else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.getInfo" id="apidoc.element.imgur.getInfo">
+        function <span class="apidocSignatureSpan">imgur.</span>getInfo
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getInfo = function (id) {
+    var deferred = Q.defer();
+
+    if (!id) {
+        deferred.reject('Invalid image ID');
+        return deferred.promise;
+    }
+
+    imgur._imgurRequest('info', id)
+        .then(function (json) {
+            deferred.resolve(json);
+        })
+        .catch(function (err) {
+            deferred.reject(err);
+        });
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+#### Fetching image data:
+
+```javascript
+var kittenPic = 'mbgq7nd';
+imgur.<span class="apidocCodeKeywordSpan">getInfo</span>(kittenPic)
+.then(function(json) {
+    console.log(json);
+})
+.catch(function (err) {
+    console.error(err.message);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.getMashapeKey" id="apidoc.element.imgur.getMashapeKey">
+        function <span class="apidocSignatureSpan">imgur.</span>getMashapeKey
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getMashapeKey = function () {
+    return IMGUR_MASHAPE_KEY;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Note: Defaults to process.env.IMGUR_MASHAPE_KEY
+
+```javascript
+//Setting
+imgur.setMashapeKey(https://imgur-apiv3.p.mashape.com/);
+
+//Getting
+imgur.<span class="apidocCodeKeywordSpan">getMashapeKey</span>()
+```
+#### Dealing with credentials:
+
+For when you want to upload images to an account.
+
+```javascript
+// Setting
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.loadClientId" id="apidoc.element.imgur.loadClientId">
+        function <span class="apidocSignatureSpan">imgur.</span>loadClientId
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadClientId = function (path) {
+    var deferred = Q.defer();
+    var clientId = null;
+
+    path = path || DEFAULT_CLIENT_ID_PATH;
+
+    fs.readFile(path, { encoding: 'utf8' }, function (err, data) {
+        if (err) {
+            return deferred.reject(err);
+        }
+
+        if (!data) {
+            deferred.reject(new Error('File is empty'));
+            return deferred.promise;
+        }
+
+        return deferred.resolve(data);
+    });
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    .catch(function (err) {
+        console.log(err.message);
+    });
+
+
+// Loading from disk
+// NOTE: path is optional. Defaults to ~/.imgur
+imgur.<span class="apidocCodeKeywordSpan">loadClientId</span>(path)
+    .then(imgur.setClientId);
+```
+#### Dealing with API URL:
+
+In order to change the API Url say Mashape URL, use setAPIUrl(MashapeURL)
+
+```javascript
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.saveClientId" id="apidoc.element.imgur.saveClientId">
+        function <span class="apidocSignatureSpan">imgur.</span>saveClientId
+        <span class="apidocSignatureSpan">(clientId, path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">saveClientId = function (clientId, path) {
+    var deferred = Q.defer();
+
+    path = path || DEFAULT_CLIENT_ID_PATH;
+
+    fs.writeFile(path, clientId, function (err) {
+        if (err) {
+            return deferred.reject(err);
+        }
+
+        return deferred.resolve();
+    });
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+imgur.setClientId('aCs53GSs4tga0ikp');
+
+// Getting
+imgur.getClientId();
+
+// Saving to disk. Returns a promise.
+// NOTE: path is optional. Defaults to ~/.imgur
+imgur.<span class="apidocCodeKeywordSpan">saveClientId</span>(path)
+.then(function () {
+    console.log('Saved.');
+})
+.catch(function (err) {
+    console.log(err.message);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.setAPIUrl" id="apidoc.element.imgur.setAPIUrl">
+        function <span class="apidocSignatureSpan">imgur.</span>setAPIUrl
+        <span class="apidocSignatureSpan">(URL)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setAPIUrl = function (URL) {
+    if(URL &amp;&amp; typeof URL === 'string') {
+        IMGUR_API_URL = URL;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+#### Dealing with API URL:
+
+In order to change the API Url say Mashape URL, use setAPIUrl(MashapeURL)
+
+```javascript
+//Setting
+imgur.<span class="apidocCodeKeywordSpan">setAPIUrl</span>('https://api.imgur.com/3/');
+
+//If setAPIUrl() is not called, API URL is read from process.env.IMGUR_API_URL
+
+//Getting
+imgur.getAPIUrl();
+```
+#### Dealing with Mashape Key
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.setClientId" id="apidoc.element.imgur.setClientId">
+        function <span class="apidocSignatureSpan">imgur.</span>setClientId
+        <span class="apidocSignatureSpan">(clientId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setClientId = function (clientId) {
+    if (clientId &amp;&amp; typeof clientId === 'string') {
+        IMGUR_CLIENT_ID = clientId;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var imgur = require('imgur');
+```
+
+#### Dealing with client IDs:
+
+```javascript
+// Setting
+imgur.<span class="apidocCodeKeywordSpan">setClientId</span>('aCs53GSs4tga0ikp');
+
+// Getting
+imgur.getClientId();
+
+// Saving to disk. Returns a promise.
+// NOTE: path is optional. Defaults to ~/.imgur
+imgur.saveClientId(path)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.setCredentials" id="apidoc.element.imgur.setCredentials">
+        function <span class="apidocSignatureSpan">imgur.</span>setCredentials
+        <span class="apidocSignatureSpan">(username, password, clientId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setCredentials = function (username, password, clientId) {
+    if (clientId &amp;&amp; typeof clientId === 'string') {
+        IMGUR_CLIENT_ID = clientId;
+    }
+    if (username &amp;&amp; typeof username === 'string') {
+        IMGUR_USERNAME = username;
+    }
+    if (password &amp;&amp; typeof password === 'string') {
+        IMGUR_PASSWORD = password;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+#### Dealing with credentials:
+
+For when you want to upload images to an account.
+
+```javascript
+// Setting
+imgur.<span class="apidocCodeKeywordSpan">setCredentials</span>('email@domain.com', 'password', 'aCs53GSs4tga0ikp
+');
+
+```
+
+#### Uploading files; globbing supported:
+
+```javascript
+// A single image
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.setMashapeKey" id="apidoc.element.imgur.setMashapeKey">
+        function <span class="apidocSignatureSpan">imgur.</span>setMashapeKey
+        <span class="apidocSignatureSpan">(mashapeKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setMashapeKey = function (mashapeKey) {
+    if(mashapeKey &amp;&amp; typeof mashapeKey === 'string') {
+        IMGUR_MASHAPE_KEY = mashapeKey;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Requests to the Mashape URL expects a X-Mashape-Key: MashapeKey header.
+Set Mashape Key by using setMashapeKey(MashapeKey) method.
+Note: Defaults to process.env.IMGUR_MASHAPE_KEY
+
+```javascript
+//Setting
+imgur.<span class="apidocCodeKeywordSpan">setMashapeKey</span>(https://imgur-apiv3.p.mashape.com/);
+
+//Getting
+imgur.getMashapeKey()
+```
+#### Dealing with credentials:
+
+For when you want to upload images to an account.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.uploadAlbum" id="apidoc.element.imgur.uploadAlbum">
+        function <span class="apidocSignatureSpan">imgur.</span>uploadAlbum
+        <span class="apidocSignatureSpan">(images, uploadType, failSafe)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">uploadAlbum = function (images, uploadType, failSafe) {
+    var deferred = Q.defer();
+
+    if (!images || !images.length || !(typeof images === 'string' || images instanceof Array)) {
+        if (failSafe) {
+            deferred.resolve({data: {}, images: []});
+        } else {
+            deferred.reject(new Error('Invalid image input, only arrays supported'));
+        }
+        return deferred.promise;
+    }
+
+    imgur.createAlbum()
+        .then(function(album) {
+            imgur.uploadImages(images, uploadType, album.data.id)
+                .then(function (images) {
+                    deferred.resolve({data: album.data, images: images});
+                })
+                .catch(function (err) {
+                    return deferred.reject(err);
+                });
+        })
+        .catch(function (err) {
+            return deferred.reject(err);
+        });
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Create a new album and upload an array of images of the desired upload type to it ('File', 'Url', 'Base64
+').
+
+Returns an object with the album data and an array of images { data: {...}, images: [{...}, ...]}.
+
+The third parameter is an optional fail safe, meaning if the array of images is empty or invalid, it will not fail, but returns
+an object with empty data and empty images.
+
+```javascript
+imgur.<span class="apidocCodeKeywordSpan">uploadAlbum</span>(images, uploadType /*, failSafe */)
+.then(function(album) {
+    console.log(album.data, album.images);
+})
+.catch(function (err) {
+    console.error(err.message);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.uploadBase64" id="apidoc.element.imgur.uploadBase64">
+        function <span class="apidocSignatureSpan">imgur.</span>uploadBase64
+        <span class="apidocSignatureSpan">(base64, albumId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">uploadBase64 = function (base64, albumId) {
+    var
+        deferred = Q.defer(),
+        extraFormParams = {};
+
+    if (typeof albumId === 'string' &amp;&amp; albumId.length) {
+        extraFormParams.album = albumId;
+    }
+
+    if (typeof base64 !== 'string' || !base64 || !base64.length) {
+        deferred.reject(new Error('Invalid Base64 input'));
+        return deferred.promise;
+    }
+
+    imgur._imgurRequest('upload', base64, extraFormParams)
+        .then(function (image) {
+            deferred.resolve(image);
+        })
+        .catch(function (err) {
+            deferred.reject(err);
+        });
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+#### Uploading Base-64 encoded images:
+
+```javascript
+var imgurFavicon = 'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAmUlEQVQ4je2TsQ3CMBBFnxMa08WR2IQKJskIUNwMZAcYwWIQMs65JCUpEEIYW4pJy6v
++6e6+/hVnnGsAzsCBMi7AsbbW/rIMsAU2xrnmkeruuzW7zgIw+JGbv6fGQpWzfy3HOsJlDQY/AlCv3jpF9oS5ZBOICKoB1YCIlCdQDR9127qyBHP5Gyw3CBXPr/qi709JHXE1S995AsqoJu8x78GsAAAAAElFTkSuQmCC
+';
+
+imgur.<span class="apidocCodeKeywordSpan">uploadBase64</span>(imgurFavicon)
+    .then(function (json) {
+        console.log(json.data.link);
+    })
+    .catch(function (err) {
+        console.error(err.message);
+    });
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.uploadFile" id="apidoc.element.imgur.uploadFile">
+        function <span class="apidocSignatureSpan">imgur.</span>uploadFile
+        <span class="apidocSignatureSpan">(file, albumId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">uploadFile = function (file, albumId) {
+    var deferred = Q.defer(),
+        extraFormParams = {};
+
+    if (typeof albumId === 'string' &amp;&amp; albumId.length) {
+        extraFormParams.album = albumId;
+    }
+
+    glob(file, function (err, files) {
+        if (err) {
+            deferred.reject(err);
+            return deferred.promise;
+        } else if (!files.length) {
+            deferred.reject(new Error('Invalid file or glob'));
+            return deferred.promise;
+        }
+
+        files.forEach(function (f, index, arr) {
+            var readStream = fs.createReadStream(f);
+            readStream.on('error', deferred.reject);
+
+            imgur._imgurRequest('upload', readStream, extraFormParams)
+                .then(function (json) {
+                    deferred.resolve(json);
+                })
+                .catch(function (err) {
+                    deferred.reject(err);
+                });
+        });
+    });
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```
+
+#### Uploading files; globbing supported:
+
+```javascript
+// A single image
+imgur.<span class="apidocCodeKeywordSpan">uploadFile</span>('/home/kai/kittens.png')
+.then(function (json) {
+    console.log(json.data.link);
+})
+.catch(function (err) {
+    console.error(err.message);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.uploadImages" id="apidoc.element.imgur.uploadImages">
+        function <span class="apidocSignatureSpan">imgur.</span>uploadImages
+        <span class="apidocSignatureSpan">(images, uploadType, albumId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">uploadImages = function (images, uploadType, albumId) {
+    var deferred = Q.defer();
+    var upload = imgur['upload' + uploadType];
+
+    if (!images || !images.length || !(typeof images === 'string' || images instanceof Array)) {
+        deferred.reject(new Error('Invalid image input, only arrays supported'));
+        return deferred.promise;
+    }
+
+    var results = [];
+    var progress = 0;
+    var done = images.length;
+    for (var i = 0; i &lt; done; i++) {
+        upload(images[i], albumId)
+            .then(function (image) {
+                results.push(image.data);
+                ++progress;
+                if (progress == done) {
+                    deferred.resolve(results);
+                }
+            })
+            .catch(function (err) {
+                deferred.reject(err);
+                return deferred.promise;
+            });
+    }
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### Uploading multiple images:
+
+Upload an array of images of the desired upload type ('File', 'Url', 'Base64').
+
+Returns an array of images (imgur image data).
+
+```javascript
+imgur.<span class="apidocCodeKeywordSpan">uploadImages</span>(images, uploadType /*, albumId */)
+.then(function(images) {
+    console.log(images);
+})
+.catch(function (err) {
+    console.error(err.message);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imgur.uploadUrl" id="apidoc.element.imgur.uploadUrl">
+        function <span class="apidocSignatureSpan">imgur.</span>uploadUrl
+        <span class="apidocSignatureSpan">(url, albumId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">uploadUrl = function (url, albumId) {
+    var deferred = Q.defer(),
+        extraFormParams = {};
+
+    if (typeof albumId === 'string' &amp;&amp; albumId.length) {
+        extraFormParams.album = albumId;
+    }
+
+    if (!url || !urlParser.parse(url).protocol) {
+        deferred.reject(new Error('Invalid URL'));
+        return deferred.promise;
+    }
+
+    imgur._imgurRequest('upload', url, extraFormParams)
+        .then(function (json) {
+            deferred.resolve(json);
+        })
+        .catch(function (err) {
+            deferred.reject(err);
+        });
+
+    return deferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```
+
+#### Uploading URLs of images hosted elsewhere:
+
+```javascript
+// Include http(s) when specifying URLs
+imgur.<span class="apidocCodeKeywordSpan">uploadUrl</span>('https://octodex.github.com/images/topguntocat.png')
+    .then(function (json) {
+        console.log(json.data.link);
+    })
+    .catch(function (err) {
+        console.error(err.message);
+    });
+```
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
